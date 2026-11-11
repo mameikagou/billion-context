@@ -147,6 +147,11 @@ export const LIVE_FILES = [
     // Native-zstd absence is simulated in an isolated Node child; it binds
     // no sockets and changes only that child's built-in module exports.
     "tests/content-encoding-zstd.test.ts",
+    // #5236: spawns one bare `node -e` dummy child purely as a live PID holder
+    // for the <db>.lock fixtures — no ports, no servers, no network I/O,
+    // mkdtemp-isolated per test; the entry is for the SPAWN_RE tripwire alone,
+    // like #4612/#5046/B
+    "tests/issue5236-rm-vacuum-writer-guard.test.ts",
 ];
 
 /** Band width per live file: the zone ladder drifts +1 per EADDRINUSE retry;
