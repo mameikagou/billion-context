@@ -3103,6 +3103,11 @@ export function _resetNonWebTraceForTest(): void {
     nonWebTraceLogged = false;
 }
 
+/** Test hook (#6770): reset the once-per-process compaction-coverage note flag. */
+export function _resetCompactionCoverageNoteForTest(): void {
+    compactionCoverageNoted = false;
+}
+
 /** Test hook: reset the once-per-process unverified-dsh-build note flag. */
 export function _resetDshNewerBuildNoteForTest(): void {
     dshNewerBuildNoted = false;
